@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<5a151a5a268b6dd5b6eb9d293a2e1795>>
+ * @generated SignedSource<<81ce7d63eb4622fbb74b92ae1329579e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,6 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type ImageFragment$data = {
-  readonly altText: string | null;
   readonly url: string;
   readonly " $fragmentType": "ImageFragment";
 };
@@ -21,18 +20,7 @@ export type ImageFragment$key = {
 };
 
 const node: ReaderFragment = {
-  "argumentDefinitions": [
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "height"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "width"
-    }
-  ],
+  "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
   "name": "ImageFragment",
@@ -41,32 +29,25 @@ const node: ReaderFragment = {
       "alias": null,
       "args": [
         {
-          "kind": "Variable",
+          "kind": "Literal",
           "name": "height",
-          "variableName": "height"
+          "value": 50
         },
         {
-          "kind": "Variable",
+          "kind": "Literal",
           "name": "width",
-          "variableName": "width"
+          "value": 50
         }
       ],
       "kind": "ScalarField",
       "name": "url",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "altText",
-      "storageKey": null
+      "storageKey": "url(height:50,width:50)"
     }
   ],
   "type": "Image",
   "abstractKey": null
 };
 
-(node as any).hash = "cec0abfc31c05b982094d4487b66f6ab";
+(node as any).hash = "33ca1bade00ba28bc5a0951ce52b8118";
 
 export default node;

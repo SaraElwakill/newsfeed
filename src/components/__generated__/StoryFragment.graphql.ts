@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<30eaa553a6acde39305cf67a23d323ee>>
+ * @generated SignedSource<<b5b6e87fd6873eeb6138708ca6fa1e70>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -37,6 +37,13 @@ const node: ReaderFragment = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "createdAt",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "title",
       "storageKey": null
     },
@@ -45,13 +52,6 @@ const node: ReaderFragment = {
       "args": null,
       "kind": "ScalarField",
       "name": "summary",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "createdAt",
       "storageKey": null
     },
     {
@@ -79,13 +79,7 @@ const node: ReaderFragment = {
       "plural": false,
       "selections": [
         {
-          "args": [
-            {
-              "kind": "Literal",
-              "name": "width",
-              "value": 400
-            }
-          ],
+          "args": null,
           "kind": "FragmentSpread",
           "name": "ImageFragment"
         }
@@ -97,6 +91,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "779b222c2da4e07d32eef85f18a36314";
+(node as any).hash = "298ba7078e100001defc88fbcb73939e";
 
 export default node;
