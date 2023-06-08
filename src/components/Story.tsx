@@ -27,8 +27,11 @@ type Props = {
 };
 
 export default function Story({ story }: Props): React.ReactElement {
+  const [show, SetShow] = React.useState(false);
   const data = useFragment(StoryFragment, story);
   console.log(data);
+  const showModal = () => SetShow(!show);
+  console.log(show);
 
   return (
     <Card>
@@ -37,6 +40,8 @@ export default function Story({ story }: Props): React.ReactElement {
       <Timestamp time={data.createdAt} />
       <Image image={data.thumbnail} className="thumbnail__image" />
       <StorySummary summary={data.summary} />
+      <button onClick={showModal}>{show ? "Hide" : "Show"}</button>
+      {show && <Image image={data.thumbnail} className="thumbnail__image" />}
     </Card>
   );
 }
