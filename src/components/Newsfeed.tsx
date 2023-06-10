@@ -6,6 +6,7 @@ import type { NewsfeedQuery as NewsfeedQueryType } from "./__generated__/Newsfee
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
     topStories {
+      id
       ...StoryFragment
     }
   }
@@ -35,7 +36,7 @@ export default function Newsfeed() {
   return (
     <div className="newsfeed">
       {stories.map((story) => (
-        <Story story={story} />
+        <Story key={story.id} story={story} />
       ))}
     </div>
   );

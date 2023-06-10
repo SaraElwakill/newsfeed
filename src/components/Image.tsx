@@ -9,8 +9,8 @@ const ImageFragment = graphql`
 `;
 type Props = {
   image: ImageFragment$key;
-  // width?: number;
-  // height?: number;
+  width?: number;
+  height?: number;
   className?: string;
 };
 
