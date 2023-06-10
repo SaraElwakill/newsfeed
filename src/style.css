@@ -44,6 +44,7 @@ body {
 }
 
 .dim {
+  overflow: auto;
   background-color: #f5f5f5;
 }
 
