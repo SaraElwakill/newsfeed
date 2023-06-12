@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<981ac1451c73d8fa3b00c0a435598486>>
+ * @generated SignedSource<<cb1fc31bdb25cb99d776ade6711fb963>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -129,21 +129,10 @@ return {
                 "selections": [
                   {
                     "alias": null,
-                    "args": [
-                      {
-                        "kind": "Literal",
-                        "name": "height",
-                        "value": 50
-                      },
-                      {
-                        "kind": "Literal",
-                        "name": "width",
-                        "value": 50
-                      }
-                    ],
+                    "args": null,
                     "kind": "ScalarField",
                     "name": "url",
-                    "storageKey": "url(height:50,width:50)"
+                    "storageKey": null
                   }
                 ],
                 "storageKey": null
@@ -192,12 +181,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "0f9585dad580189ee8f624536e595599",
+    "cacheID": "ceacd382b9d5347f19f7133037e645c4",
     "id": null,
     "metadata": {},
     "name": "PosterDetailsHovercardContentsQuery",
     "operationKind": "query",
-    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterID: ID!\n) {\n  node(id: $posterID) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url(width: 50, height: 50)\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n  ... on Organization {\n    organizationKind\n  }\n  ... on Person {\n    location {\n      name\n      id\n    }\n  }\n}\n"
+    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterID: ID!\n) {\n  node(id: $posterID) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n  ... on Organization {\n    organizationKind\n  }\n  ... on Person {\n    location {\n      name\n      id\n    }\n  }\n}\n"
   }
 };
 })();

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<81ce7d63eb4622fbb74b92ae1329579e>>
+ * @generated SignedSource<<3c97e1d8e2d1dc7a4637dffef266784c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,7 +20,18 @@ export type ImageFragment$key = {
 };
 
 const node: ReaderFragment = {
-  "argumentDefinitions": [],
+  "argumentDefinitions": [
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "height"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "width"
+    }
+  ],
   "kind": "Fragment",
   "metadata": null,
   "name": "ImageFragment",
@@ -29,25 +40,25 @@ const node: ReaderFragment = {
       "alias": null,
       "args": [
         {
-          "kind": "Literal",
+          "kind": "Variable",
           "name": "height",
-          "value": 50
+          "variableName": "height"
         },
         {
-          "kind": "Literal",
+          "kind": "Variable",
           "name": "width",
-          "value": 50
+          "variableName": "width"
         }
       ],
       "kind": "ScalarField",
       "name": "url",
-      "storageKey": "url(height:50,width:50)"
+      "storageKey": null
     }
   ],
   "type": "Image",
   "abstractKey": null
 };
 
-(node as any).hash = "33ca1bade00ba28bc5a0951ce52b8118";
+(node as any).hash = "a1cc9a5f2413cf4bd1f4329374db6eac";
 
 export default node;

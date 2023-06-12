@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b5d2c8885192bca9813f6259cb3eb274>>
+ * @generated SignedSource<<d61a79b17ca2c0c8ccc4dedeec4a2fc8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -122,21 +122,10 @@ return {
                 "selections": [
                   {
                     "alias": null,
-                    "args": [
-                      {
-                        "kind": "Literal",
-                        "name": "height",
-                        "value": 50
-                      },
-                      {
-                        "kind": "Literal",
-                        "name": "width",
-                        "value": 50
-                      }
-                    ],
+                    "args": null,
                     "kind": "ScalarField",
                     "name": "url",
-                    "storageKey": "url(height:50,width:50)"
+                    "storageKey": null
                   }
                 ],
                 "storageKey": null
@@ -150,12 +139,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "380844240394d8c3ddabdd116a3b3d4b",
+    "cacheID": "26ae17855d276aaa0ffa728b7a3c629f",
     "id": null,
     "metadata": {},
     "name": "ContactsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url(width: 50, height: 50)\n}\n"
+    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n"
   }
 };
 })();

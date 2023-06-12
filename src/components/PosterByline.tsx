@@ -13,7 +13,7 @@ const PosterBylineFragment = graphql`
     id
     name
     profilePicture {
-      ...ImageFragment
+      ...ImageFragment @arguments(width: 60, height: 60)
     }
   }
 `;
