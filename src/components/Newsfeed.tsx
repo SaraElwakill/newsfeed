@@ -1,67 +1,63 @@
 import * as React from "react";
 import Story from "./Story";
-import { graphql } from "relay-runtime";
+import { FragmentRefs, graphql } from "relay-runtime";
 import { useLazyLoadQuery, usePaginationFragment } from "react-relay";
 import type { NewsfeedQuery as NewsfeedQueryType } from "./__generated__/NewsfeedQuery.graphql";
 import InfiniteScrollTrigger from "./InfiniteScrollTrigger";
-import type { NewsfeedContentsFragment$key } from "./__generated__/NewsfeedContentsFragment.graphql";
+import type { NewsfeedContentsFragment$data } from "./__generated__/NewsfeedContentsFragment.graphql";
+// import type { NewsfeedContentsRefetchQuery$key } from "./__generated__/NewsfeedContentsRefetchQuery.graphql";
+import type {
+  StoryFragment$data,
+  StoryFragment$key,
+} from "./__generated__/StoryFragment.graphql";
+
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
-    viewer {
-      ...NewsfeedContentsFragment
-    }
+    ...NewsfeedContentsFragment
   }
 `;
 const NewsfeedContentsFragment = graphql`
-  fragment NewsfeedContentsFragment on Viewer
+  fragment NewsfeedContentsFragment on Query
   @refetchable(queryName: "NewsfeedContentsRefetchQuery")
   @argumentDefinitions(
     cursor: { type: "String" }
     count: { type: "Int", defaultValue: 3 }
   ) {
-    newsfeedStories(after: $cursor, first: $count)
-      @connection(key: "NewsfeedContentsFragment_newsfeedStories") {
-      edges {
-        node {
-          id
-          ...StoryFragment
+    viewer {
+      newsfeedStories(after: $cursor, first: $count)
+        @connection(key: "NewsfeedContentsFragment_newsfeedStories") {
+        edges {
+          node {
+            id
+            ...StoryFragment
+          }
         }
       }
     }
   }
 `;
-
-// const Props = {
-//   viewr{
-//     newsfeedStories: NewsfeedContentsFragment$key,
-//   }
-// };
+type story = {
+  node: StoryFragment$key & { id: string };
+};
 
 export default function Newsfeed() {
-  const data = useLazyLoadQuery<NewsfeedQueryType>(NewsfeedQuery, {});
-  console.log(data);
+  const queryData = useLazyLoadQuery<NewsfeedQueryType>(NewsfeedQuery, {});
 
-  const viewerObj = data.viewer;
+  const { data, loadNext, hasNext, isLoadingNext } = usePaginationFragment(
+    NewsfeedContentsFragment,
+    queryData
+  );
 
-  console.log(viewerObj);
+  const mydata = data as NewsfeedContentsFragment$data;
+  const stories = mydata.viewer.newsfeedStories.edges;
 
-  const {
-    data: newData,
-    loadNext,
-    hasNext,
-    isLoadingNext,
-  } = usePaginationFragment(NewsfeedContentsFragment, viewerObj);
-  const stories: { newsfeedStories: NewsfeedContentsFragment$key } =
-    newData.newsfeedStories.edges;
-  console.log(newData.newsfeedStories.edges);
-
-  // const stories = newData.newsfeedStories.edges;
   function onEndReached() {
     loadNext(3);
   }
+
   return (
     <div className="newsfeed">
-      {stories.map((story: any) => (
+      {stories.map((story: story) => (
         <Story key={story.node.id} story={story.node} />
       ))}
       <InfiniteScrollTrigger

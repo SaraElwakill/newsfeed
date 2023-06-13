@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<19d833d6e178c2fb0f8b3ca2c6a36e45>>
+ * @generated SignedSource<<875c35bf199e1a9481bbdec8d1be4504>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,9 +12,7 @@ import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type NewsfeedQuery$variables = {};
 export type NewsfeedQuery$data = {
-  readonly viewer: {
-    readonly " $fragmentSpreads": FragmentRefs<"NewsfeedContentsFragment">;
-  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"NewsfeedContentsFragment">;
 };
 export type NewsfeedQuery = {
   response: NewsfeedQuery$data;
@@ -72,20 +70,9 @@ return {
     "name": "NewsfeedQuery",
     "selections": [
       {
-        "alias": null,
         "args": null,
-        "concreteType": "Viewer",
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "NewsfeedContentsFragment"
-          }
-        ],
-        "storageKey": null
+        "kind": "FragmentSpread",
+        "name": "NewsfeedContentsFragment"
       }
     ],
     "type": "Query",
@@ -344,16 +331,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fc79af72b75eb7d6e60285d3c40c1981",
+    "cacheID": "d8a649bd0dfbae86105c5bd630e085e9",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  viewer {\n    ...NewsfeedContentsFragment\n  }\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n}\n\nfragment ImageFragment_3vZhz1 on Image {\n  url(width: 300, height: 300)\n}\n\nfragment NewsfeedContentsFragment on Viewer {\n  newsfeedStories(first: 3) {\n    edges {\n      node {\n        id\n        ...StoryFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  createdAt\n  title\n  summary\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_3vZhz1\n  }\n  ...StoryCommentsSectionFragment\n}\n"
+    "text": "query NewsfeedQuery {\n  ...NewsfeedContentsFragment\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n}\n\nfragment ImageFragment_3vZhz1 on Image {\n  url(width: 300, height: 300)\n}\n\nfragment NewsfeedContentsFragment on Query {\n  viewer {\n    newsfeedStories(first: 3) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  createdAt\n  title\n  summary\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_3vZhz1\n  }\n  ...StoryCommentsSectionFragment\n}\n"
   }
 };
 })();
 
-(node as any).hash = "a3a27a145ad6a33e50912ec69644bd3d";
+(node as any).hash = "e5ca1dc5da2118b47284b13bf1a04a22";
 
 export default node;

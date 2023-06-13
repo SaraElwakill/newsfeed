@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1430793a88844b9d401ea6334d9a3f3f>>
+ * @generated SignedSource<<b2fcf02934f0d0a98d47c0055c9c0c89>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,13 +11,15 @@
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type NewsfeedContentsFragment$data = {
-  readonly newsfeedStories: {
-    readonly edges: ReadonlyArray<{
-      readonly node: {
-        readonly id: string;
-        readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
-      } | null;
-    } | null> | null;
+  readonly viewer: {
+    readonly newsfeedStories: {
+      readonly edges: ReadonlyArray<{
+        readonly node: {
+          readonly id: string;
+          readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
+        } | null;
+      } | null> | null;
+    } | null;
   } | null;
   readonly " $fragmentType": "NewsfeedContentsFragment";
 };
@@ -28,6 +30,7 @@ export type NewsfeedContentsFragment$key = {
 
 const node: ReaderFragment = (function(){
 var v0 = [
+  "viewer",
   "newsfeedStories"
 ];
 return {
@@ -62,55 +65,71 @@ return {
         "backward": null,
         "path": (v0/*: any*/)
       },
-      "fragmentPathInResult": [
-        "viewer"
-      ],
+      "fragmentPathInResult": [],
       "operation": require('./NewsfeedContentsRefetchQuery.graphql')
     }
   },
   "name": "NewsfeedContentsFragment",
   "selections": [
     {
-      "alias": "newsfeedStories",
+      "alias": null,
       "args": null,
-      "concreteType": "StoriesConnection",
+      "concreteType": "Viewer",
       "kind": "LinkedField",
-      "name": "__NewsfeedContentsFragment_newsfeedStories_connection",
+      "name": "viewer",
       "plural": false,
       "selections": [
         {
-          "alias": null,
+          "alias": "newsfeedStories",
           "args": null,
-          "concreteType": "StoriesConnectionEdge",
+          "concreteType": "StoriesConnection",
           "kind": "LinkedField",
-          "name": "edges",
-          "plural": true,
+          "name": "__NewsfeedContentsFragment_newsfeedStories_connection",
+          "plural": false,
           "selections": [
             {
               "alias": null,
               "args": null,
-              "concreteType": "Story",
+              "concreteType": "StoriesConnectionEdge",
               "kind": "LinkedField",
-              "name": "node",
-              "plural": false,
+              "name": "edges",
+              "plural": true,
               "selections": [
                 {
                   "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
+                  "concreteType": "Story",
+                  "kind": "LinkedField",
+                  "name": "node",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "id",
+                      "storageKey": null
+                    },
+                    {
+                      "args": null,
+                      "kind": "FragmentSpread",
+                      "name": "StoryFragment"
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "__typename",
+                      "storageKey": null
+                    }
+                  ],
                   "storageKey": null
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "StoryFragment"
                 },
                 {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
-                  "name": "__typename",
+                  "name": "cursor",
                   "storageKey": null
                 }
               ],
@@ -119,33 +138,26 @@ return {
             {
               "alias": null,
               "args": null,
-              "kind": "ScalarField",
-              "name": "cursor",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "PageInfo",
-          "kind": "LinkedField",
-          "name": "pageInfo",
-          "plural": false,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "endCursor",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "hasNextPage",
+              "concreteType": "PageInfo",
+              "kind": "LinkedField",
+              "name": "pageInfo",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "endCursor",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "hasNextPage",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             }
           ],
@@ -155,11 +167,11 @@ return {
       "storageKey": null
     }
   ],
-  "type": "Viewer",
+  "type": "Query",
   "abstractKey": null
 };
 })();
 
-(node as any).hash = "41df1c2e4da3b3beb896712df0f0f576";
+(node as any).hash = "6111567f07b886baa4455f38e18f5001";
 
 export default node;

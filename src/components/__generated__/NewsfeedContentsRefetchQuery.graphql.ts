@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8f41c58559067102456478b66b8b32ab>>
+ * @generated SignedSource<<6e5db3c29d42bf5b0676a03ffa9ea6f5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,9 +15,7 @@ export type NewsfeedContentsRefetchQuery$variables = {
   cursor?: string | null;
 };
 export type NewsfeedContentsRefetchQuery$data = {
-  readonly viewer: {
-    readonly " $fragmentSpreads": FragmentRefs<"NewsfeedContentsFragment">;
-  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"NewsfeedContentsFragment">;
 };
 export type NewsfeedContentsRefetchQuery = {
   response: NewsfeedContentsRefetchQuery$data;
@@ -99,31 +97,20 @@ return {
     "name": "NewsfeedContentsRefetchQuery",
     "selections": [
       {
-        "alias": null,
-        "args": null,
-        "concreteType": "Viewer",
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
+        "args": [
           {
-            "args": [
-              {
-                "kind": "Variable",
-                "name": "count",
-                "variableName": "count"
-              },
-              {
-                "kind": "Variable",
-                "name": "cursor",
-                "variableName": "cursor"
-              }
-            ],
-            "kind": "FragmentSpread",
-            "name": "NewsfeedContentsFragment"
+            "kind": "Variable",
+            "name": "count",
+            "variableName": "count"
+          },
+          {
+            "kind": "Variable",
+            "name": "cursor",
+            "variableName": "cursor"
           }
         ],
-        "storageKey": null
+        "kind": "FragmentSpread",
+        "name": "NewsfeedContentsFragment"
       }
     ],
     "type": "Query",
@@ -382,16 +369,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "34a7ce121e0d754a1e27114cee89759a",
+    "cacheID": "615d794e3b66dfebc3e448abdcd52e52",
     "id": null,
     "metadata": {},
     "name": "NewsfeedContentsRefetchQuery",
     "operationKind": "query",
-    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  viewer {\n    ...NewsfeedContentsFragment_1G22uz\n  }\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n}\n\nfragment ImageFragment_3vZhz1 on Image {\n  url(width: 300, height: 300)\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Viewer {\n  newsfeedStories(after: $cursor, first: $count) {\n    edges {\n      node {\n        id\n        ...StoryFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  createdAt\n  title\n  summary\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_3vZhz1\n  }\n  ...StoryCommentsSectionFragment\n}\n"
+    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  ...NewsfeedContentsFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n}\n\nfragment ImageFragment_3vZhz1 on Image {\n  url(width: 300, height: 300)\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(after: $cursor, first: $count) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  createdAt\n  title\n  summary\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_3vZhz1\n  }\n  ...StoryCommentsSectionFragment\n}\n"
   }
 };
 })();
 
-(node as any).hash = "41df1c2e4da3b3beb896712df0f0f576";
+(node as any).hash = "6111567f07b886baa4455f38e18f5001";
 
 export default node;
