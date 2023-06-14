@@ -9,6 +9,7 @@ import { useFragment } from "react-relay";
 import type { StoryFragment$key } from "./__generated__/StoryFragment.graphql";
 import Timestamp from "./Timestamp";
 import StoryCommentsSection from "./StoryCommentsSection";
+import StoryLikeButton from "./StoryLikeButton";
 
 const StoryFragment = graphql`
   fragment StoryFragment on Story {
@@ -22,6 +23,7 @@ const StoryFragment = graphql`
       ...ImageFragment @arguments(width: 300, height: 300)
     }
     ...StoryCommentsSectionFragment
+    ...StoryLikeButtonFragment
   }
 `;
 
@@ -41,6 +43,7 @@ export default function Story({ story }: Props): React.ReactElement {
       <Timestamp time={data.createdAt} />
       <Image image={data.thumbnail} className="thumbnail__image" />
       <StorySummary summary={data.summary} />
+      <StoryLikeButton story={data} />
       <StoryCommentsSection story={data} />
       <button onClick={showModal}>{show ? "Hide" : "Show"}</button>
       {show && <Image image={data.thumbnail} className="thumbnail__image" />}

@@ -5,11 +5,8 @@ import { useLazyLoadQuery, usePaginationFragment } from "react-relay";
 import type { NewsfeedQuery as NewsfeedQueryType } from "./__generated__/NewsfeedQuery.graphql";
 import InfiniteScrollTrigger from "./InfiniteScrollTrigger";
 import type { NewsfeedContentsFragment$data } from "./__generated__/NewsfeedContentsFragment.graphql";
-// import type { NewsfeedContentsRefetchQuery$key } from "./__generated__/NewsfeedContentsRefetchQuery.graphql";
-import type {
-  StoryFragment$data,
-  StoryFragment$key,
-} from "./__generated__/StoryFragment.graphql";
+
+import type { StoryFragment$key } from "./__generated__/StoryFragment.graphql";
 
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
