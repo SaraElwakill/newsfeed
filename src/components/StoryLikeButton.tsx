@@ -34,6 +34,7 @@ export default function StoryLikeButton({ story }: Props): React.ReactElement {
   const [commitMutation, isMutationInFlight] = useMutation(
     StoryLikeButtonLikeMutation
   );
+
   const onLikeButtonClicked = () => {
     commitMutation({
       variables: {
@@ -59,6 +60,7 @@ export default function StoryLikeButton({ story }: Props): React.ReactElement {
       },
     });
   };
+
   return (
     <div className="likeButton">
       <LikeCount count={data.likeCount} />
